@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="jumbotron">
+                <h1>Stranger Things</h1>
+                <p>
+                    <form method="post" action="{{ url_for('send') }}">
+                        <div class="input-group">
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                pattern="[A-Za-z\s]+" 
+                                maxlength="15" 
+                                name="message" 
+                                id="input"
+                                placeholder="Message to send...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="submit">Send</button>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                    </form>
+                </p>
+            </div> <!-- jumbotron -->
+        </div> <!-- panel-body -->
+    </div> <!-- panel -->
+</div> <!-- Top level row -->
+
+<script>
+    var input = document.getElementById('input');
+    input.oninvalid = function(event) {
+        event.target.setCustomValidity('Message can only contain letters and spaces.');
+    }
+</script>
+
+{% endblock %}

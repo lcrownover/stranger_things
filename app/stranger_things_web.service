@@ -1,0 +1,11 @@
+[Unit]
+Description=Stranger Things WebApp
+After=multi-user.target
+ 
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/stranger_things/web/app/app.py --host 0.0.0.0 --port 80
+Restart=always
+ 
+[Install]
+WantedBy=multi-user.target
